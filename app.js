@@ -64,10 +64,10 @@ app.patch("/cars/:make", (req, res) => {
             if (err) {
                 console.log(err);
             } else {
-                res.status(201).send(newCar);
+                res.status(200).send({ "updated to": updatedCar });
             }
         })
-        res.send(updatedCar);
+
     } catch (err) {
         res.status(400).send(err.message);
     }
@@ -88,10 +88,9 @@ app.delete("/cars/:make", (req, res) => {
             if (err) {
                 console.log(err);
             } else {
-                res.status(201).send(newCar);
+                res.status(204).send();
             }
         })
-        res.status(204).send();
     }
 })
 

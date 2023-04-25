@@ -18,12 +18,6 @@ app.get("/", (req, res) => {
 app.use("/cars", carRoutes);
 
 
-// //GET /cars:id
-// app.get("/cars/:id", (req, res) => {
-//     const car = cars.find(car => car.id == req.params.id);
-//     car ? res.send(car) : res.status(404).send({ error: "This car does not exist!" });
-// })
-
 // //POST /cars
 // app.post("/cars", (req, res) => {
 //     let newId = cars.reduce((car1, car2) => car1.id > car2.id ? car1.id : car2.id) + 1;

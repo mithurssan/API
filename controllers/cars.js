@@ -5,4 +5,14 @@ const index = async (req, res) => {
     res.send(cars);
 }
 
-module.exports = { index };
+const findById = async (req, res) => {
+    try {
+        const cars = await Car.findById(req.params.id);
+        res.send(cars);
+    } catch (error) {
+        res.status(404).send({ error: error.message })
+    }
+
+}
+
+module.exports = { index, findById };

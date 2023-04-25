@@ -9,6 +9,18 @@ class Car {
     static get all() {
         return cars.map(car => new Car(car));
     }
+
+    static async findById(carsId) {
+        try {
+            const idx = parseInt(carsId);
+            const car = cars.find(car => car.id === idx);
+            return new Car(car);
+        } catch (error) {
+            throw new Error("Car not found.")
+        }
+
+    }
+
 }
 
 module.exports = Car;

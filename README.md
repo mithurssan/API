@@ -6,4 +6,5 @@
  - npm install
  - npm start (npm run dev for devs), server will start on [3000](http://localhost:3000)
  - GET 
-    - /cars: get all cars 
+   - /cars: get all cars 
+   - /cars/id: get cars by id

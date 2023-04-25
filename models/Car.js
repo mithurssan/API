@@ -43,7 +43,27 @@ class Car {
         }
     }
 
+    static async update(data) {
+        try {
+
+            const car = cars.find(car => car.make.toLowerCase() === data.params.make.toLowerCase());
+            if (!car) {
+                throw new Error("Car does not exist.");
+            }
+            const updatedCar = new Car({ ...data.body, make: (data.body.make), id: car.id })
+            const newIndex = cars.findIndex(i => i.id === car.id);
+            cars[newIndex] = updatedCar;
+            return updatedCar;
+
+        } catch (error) {
+            throw (error.message);
+        }
+    }
+
 }
+
+
+
 
 
 module.exports = Car;

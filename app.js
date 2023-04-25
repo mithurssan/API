@@ -19,32 +19,7 @@ app.use("/cars", carRoutes);
 
 
 
-// //PATCH /cars/:make
-// app.patch("/cars/:make", (req, res) => {
-//     const car = cars.find(car => car.make.toLowerCase() === req.params.make.toLowerCase());
 
-//     if (!car) {
-//         return res.status(404).send({ error: "This car does not exist!" });
-//     }
-
-//     try {
-//         const updatedCar = { ...req.body, make: (req.body.make), id: car.id }
-
-//         const newIndex = cars.findIndex(i => i.id === car.id);
-//         cars[newIndex] = updatedCar;
-
-//         fs.writeFile("cars.json", JSON.stringify(cars), err => {
-//             if (err) {
-//                 console.log(err);
-//             } else {
-//                 res.status(200).send({ "updated to": updatedCar });
-//             }
-//         })
-
-//     } catch (err) {
-//         res.status(400).send(err.message);
-//     }
-// })
 
 // //DELETE /cars/:make
 // app.delete("/cars/:make", (req, res) => {

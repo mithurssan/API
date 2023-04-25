@@ -10,3 +10,5 @@
    - /cars/id: get cars by id
  - POST
    - /cars: create new car
+ - PATCH
+   - /cars/make: update car

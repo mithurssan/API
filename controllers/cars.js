@@ -24,5 +24,16 @@ const create = async (req, res) => {
     }
 }
 
+const update = async (req, res) => {
+    try {
+        const updatedCar = await Car.update(req);
+        res.status(201).send(updatedCar);
+    } catch (error) {
+        res.status(400).send({ error: "Car does not exist." })
+    }
+}
 
-module.exports = { index, findById, create };
+
+
+
+module.exports = { index, findById, create, update };

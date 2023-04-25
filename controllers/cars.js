@@ -5,7 +5,7 @@ const index = async (req, res) => {
     res.send(cars);
 }
 
-const findById = async (req, res) => {
+const show = async (req, res) => {
     try {
         const car = await Car.findById(req.params.id);
         res.send(car);
@@ -45,4 +45,4 @@ const destroy = async (req, res) => {
 }
 
 
-module.exports = { index, findById, create, update, destroy };
+module.exports = { index, show, create, update, destroy };

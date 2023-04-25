@@ -7,6 +7,7 @@ router.get("/", carsController.index);
 router.get("/:id", carsController.findById);
 router.post("/", carsController.create);
 router.patch("/:make", carsController.update);
+router.delete("/:id", carsController.destroy);
 
 
 

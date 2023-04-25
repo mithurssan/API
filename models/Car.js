@@ -10,9 +10,9 @@ class Car {
         return cars.map(car => new Car(car));
     }
 
-    static async findById(carsId) {
+    static async findById(carId) {
         try {
-            const idx = parseInt(carsId);
+            const idx = parseInt(carId);
             const car = cars.find(car => car.id === idx);
             return new Car(car);
         } catch (error) {
@@ -60,10 +60,18 @@ class Car {
         }
     }
 
+    async destroy() {
+        const car = cars.find(car => car.id === this.id);
+
+        if (car) {
+            const carIdx = cars.indexOf(car);
+            cars.splice(carIdx, 1);
+        } else {
+            throw new Error("Car not found");
+        }
+    }
+
 }
-
-
-
 
 
 module.exports = Car;

@@ -33,7 +33,16 @@ const update = async (req, res) => {
     }
 }
 
+const destroy = async (req, res) => {
+    try {
+        const carId = parseInt(req.params.id);
+        const car = await Car.findById(carId);
+        await car.destroy();
+        res.sendStatus(204);
+    } catch (error) {
+        res.status(404).send({ error: err.message });
+    }
+}
 
 
-
-module.exports = { index, findById, create, update };
+module.exports = { index, findById, create, update, destroy };

@@ -18,27 +18,6 @@ app.get("/", (req, res) => {
 app.use("/cars", carRoutes);
 
 
-// //POST /cars
-// app.post("/cars", (req, res) => {
-//     let newId = cars.reduce((car1, car2) => car1.id > car2.id ? car1.id : car2.id) + 1;
-//     const car = cars.find(car => car.make === req.body.make);
-
-//     if (!car) {
-//         const newCar = { ...req.body, id: newId };
-//         cars.push(newCar);
-
-//         fs.writeFile("cars.json", JSON.stringify(cars), err => {
-//             if (err) {
-//                 console.log(err);
-//             } else {
-//                 res.status(201).send(newCar);
-//             }
-//         })
-//     }
-//     else {
-//         res.status(409).send({ error: "This car already exists!" })
-//     }
-// })
 
 // //PATCH /cars/:make
 // app.patch("/cars/:make", (req, res) => {

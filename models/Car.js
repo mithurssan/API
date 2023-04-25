@@ -21,6 +21,29 @@ class Car {
 
     }
 
+    static async create(data) {
+        try {
+            let newId;
+            cars.length
+                ? newId = cars.reduce((car1, car2) => car1.id > car2.id ? car1.id : car2.id) + 1
+                : newId = 1;
+
+            const car = cars.find(car => car.make === data.make);
+
+            if (!car) {
+                const newCar = new Car({ ...data, id: newId });
+                cars.push(newCar);
+                return newCar;
+            }
+            else {
+                throw new Error("Car already exists.");
+            }
+        } catch (error) {
+            throw (error.message);
+        }
+    }
+
 }
+
 
 module.exports = Car;

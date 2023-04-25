@@ -7,12 +7,22 @@ const index = async (req, res) => {
 
 const findById = async (req, res) => {
     try {
-        const cars = await Car.findById(req.params.id);
-        res.send(cars);
+        const car = await Car.findById(req.params.id);
+        res.send(car);
     } catch (error) {
         res.status(404).send({ error: error.message })
     }
 
 }
 
-module.exports = { index, findById };
+const create = async (req, res) => {
+    try {
+        const newCar = await Car.create(req.body);
+        res.status(201).send(newCar);
+    } catch (error) {
+        res.status(422).send({ error: "Car already exists." });
+    }
+}
+
+
+module.exports = { index, findById, create };
